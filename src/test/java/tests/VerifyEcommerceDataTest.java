@@ -72,13 +72,13 @@ public class VerifyEcommerceDataTest extends BaseTest {
 
         //Negative to Metabase
         page.navigate(Metabase_Url);
-        captureScreenshotFullPage();
+        captureScreenshot();
 
         //Login
         loginPage.login(Email,Password);
         waitForPage();
         Assert.assertTrue(loginPage.isOnHomePage());
-        captureScreenshotFullPage();
+        captureScreenshot();
 
         //Click Examples
         dashboardPage.clickExample();
@@ -88,11 +88,11 @@ public class VerifyEcommerceDataTest extends BaseTest {
         //Click E-commerce Insights
         dashboardPage.clickEcommerceInsights();
         waitForPage();
-        captureScreenshotFullPage();
+        captureScreenshot();
 
         //Scroll down to Deeper Dive section
         dashboardPage.scrollToDeepDive();
-        captureScreenshotFullPage();
+        captureScreenshot();
 
         //Hover to the Widget part
         dashboardPage.hoverOnWidgetTotalOrders();
@@ -104,35 +104,35 @@ public class VerifyEcommerceDataTest extends BaseTest {
         int actualTotalOrders = Integer.parseInt(tooltipText.replace(",",""));
         int expectedTotalOrders = Integer.parseInt(pre_con1);
         Assert.assertEquals(actualTotalOrders,expectedTotalOrders);
-        captureScreenshotFullPage();
+        captureScreenshot();
 
         dashboardPage.scrollReturn();
 
         //Filter Widget
         dashboardPage.filterByCategory("Widget");
         waitForPage();
-        captureScreenshotFullPage();
+        captureScreenshot();
 
         //Verify Revenue Per Quarter
         String revenuePerQuarter = dashboardPage.getRevenuePerQuarter();
         int actualRevenue   = Integer.parseInt(revenuePerQuarter.replace(",",""));
         int expectedRevenue = (int) Double.parseDouble(pre_con3);
         Assert.assertEquals(actualRevenue,expectedRevenue);
-        captureScreenshotFullPage();
+        captureScreenshot();
 
         //Verify Revenue Goal
         String revenueGoal = dashboardPage.getRevenueGoal();
         int actualRevenueGoal   = Integer.parseInt(revenueGoal.replace(",",""));
         int expectedRevenueGoal = (int) Double.parseDouble(pre_con3);
         Assert.assertEquals(actualRevenueGoal,expectedRevenueGoal);
-        captureScreenshotFullPage();
+        captureScreenshot();
 
         //Verify Total Order
         String totalOrdersQuarter = dashboardPage.getTotalOrders();
         int actualTotalOrder = Integer.parseInt(totalOrdersQuarter);
         int expectedTotalOrder = Integer.parseInt(pre_con2);
         Assert.assertEquals(actualTotalOrder,expectedTotalOrder);
-        captureScreenshotFullPage();
+        captureScreenshot();
 
         dashboardPage.scrollToDeepDive();
 
@@ -152,18 +152,18 @@ public class VerifyEcommerceDataTest extends BaseTest {
         int uiValueOrder = Integer.parseInt(tooltipTextQ2Order.replace(",",""));
         int dbValueOder = Integer.parseInt(pre_con4);
         Assert.assertEquals(uiValueOrder,dbValueOder);
-        captureScreenshotFullPage();
+        captureScreenshot();
 
         //Verify Orders by product category
         String widgetTotalOrder = dashboardPage.getWidgetTotalOrder();
         int uiValueTotalOrder = Integer.parseInt(widgetTotalOrder.replace(",",""));
         int dbValueTotalOrder = Integer.parseInt(pre_con1);
         Assert.assertEquals(uiValueTotalOrder,dbValueTotalOrder);
-        captureScreenshotFullPage();
+        captureScreenshot();
 
         //Logout
         loginPage.logout();
         waitForPage();
-        captureScreenshotFullPage();
+        captureScreenshot();
     }
 }
